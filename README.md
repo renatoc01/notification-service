@@ -72,3 +72,13 @@ notification-service/
 - **Spring Kafka**
 - **JUnit 5**
 - **Docker**
+
+## 🚀 CI/CD Pipeline
+
+- Checkout Code: Clones the latest source code from the main branch.
+- Set Up JDK 17: Installs Java 17 (Temurin distribution) needed for the build and tests.
+- Maven Dependency Cache: Caches .m2 repository dependencies to accelerate build times.
+- Permission Setup: Adds execute permissions to the Maven wrapper script (./mvnw).
+- Build: Compiles and packages the application using Maven (./mvnw clean install).
+- Test Execution: Runs unit tests to verify the code integrity.
+- Docker Image Build: Builds a Docker image tagged as notification-service:latest for deployment.
