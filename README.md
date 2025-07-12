@@ -82,3 +82,17 @@ notification-service/
 - Build: Compiles and packages the application using Maven (./mvnw clean install).
 - Test Execution: Runs unit tests to verify the code integrity.
 - Docker Image Build: Builds a Docker image tagged as notification-service:latest for deployment.
+
+## 🎯 Observability
+
+We implemented observability across all microservices (order-service, inventory-service, notification-service) using:
+
+- Spring Boot Actuator for health checks, metrics, and tracing endpoints.
+- Micrometer with Prometheus integration for metrics collection.
+- Prometheus to scrape metrics from services.
+- Grafana for visualizing metrics dashboards.
+- Zipkin for distributed tracing to analyze request flows across services.
+
+Each service exposes a /actuator/prometheus endpoint for metrics and reports tracing data to Zipkin.
+
+The infrastructure is orchestrated via Docker Compose, which includes Kafka, Zookeeper, Zipkin, Prometheus, and Grafana containers, along with the microservices.
